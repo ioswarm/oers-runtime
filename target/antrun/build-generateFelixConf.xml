@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="generateFelixConf"  >
+<target name="generateFelixConf">
+  <delete dir="felix-cache"/>
+  <mkdir dir="bundle"/>
+  <mkdir dir="conf"/>
+  <propertyfile file="conf/config.properties">
+    <entry value="bundle" key="felix.auto.deploy.dir"/>
+    <entry value="install,start" key="felix.auto.deploy.action"/>
+    <entry value="3" key="felix.log.level"/>
+    <entry value="felix-cache" key="org.osgi.framework.storage"/>
+    <entry value=".*\\.jar" key="felix.fileinstall.filter"/>
+    <entry value="./deploy" key="felix.fileinstall.dir"/>
+  </propertyfile>
+</target>
+</project>
